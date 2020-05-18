@@ -48,18 +48,21 @@ class Outro(Scene):
             run_time = 2
         )
         
-        self.wait()
+        self.wait(4)
         
         self.play(
-            Transform(github, github_3b1b),
-            Transform(see_description, acknowledge_3b1b),
+            ReplacementTransform(github, github_3b1b),
+            ReplacementTransform(see_description, acknowledge_3b1b),
             run_time = 2
         )
         
-        self.wait(2)
+        self.wait(4)
         
         self.play(
             FadeOut(github_3b1b),
             FadeOut(acknowledge_3b1b),
-            run_time = 2
+            FadeOut(github_logo),
+            run_time = 8
         )
+        
+        self.wait()
