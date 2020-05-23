@@ -7,11 +7,11 @@ from scipy.integrate import odeint
 sigma = 10; beta = (8/3); rho = 28
 
 # Initial conditions
-x_init = 0.01; y_init = 0.01; z_init = 0.01
+x_init = -5.27; y_init = -5.06; z_init = 23.559
 initial_state = np.array([x_init, y_init, z_init])
 
 # Create array of time values to study
-t_init = 0; t_fin = 40; h = 0.01
+t_init = 0; t_fin = 80; h = 0.01
 t = np.arange(t_init, t_fin, h)
 
 # Governing system of differential equations
