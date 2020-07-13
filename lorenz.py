@@ -717,3 +717,37 @@ class ThreeButterflies(ThreeDScene):
             FadeOut(trajectory_5),
             run_time = 3
         )
+        
+class Farfalle(ThreeDScene):
+    CONFIG = {
+        'x_min' : -100,
+        'x_max' : 100,
+        
+        'y_min' : -100,
+        'y_max' : 100,
+        
+        'z_min' : -100,
+        'z_max' : 100
+    }
+    
+    def construct(self):
+        
+        axes = ThreeDAxes()
+        
+        x_coords_6 = 0.148*states_4[:, 0]
+        y_coords_6 = 0.148*states_4[:, 1]
+        z_coords_6 = 0.148*states_4[:, 2] - 3.65
+        
+        def coord(x,y,z):
+            return np.array([x,y,z])
+                
+        self.tuples_6 = list(zip(x_coords_6, y_coords_6, z_coords_6))
+        
+        trajectory_6 = VMobject()
+        trajectory_6.set_color(color=[RED, BLUE, WHITE])
+        trajectory_6.set_points_smoothly([*[coord(x,y,z) for x,y,z in self.tuples_6]])
+        
+        # self.add(axes)
+        self.set_camera_orientation(phi=PI/2, theta=25*PI/16, distance = 30)        
+        self.play(ShowCreation(trajectory_6), run_time=10)
+        self.wait(2)
